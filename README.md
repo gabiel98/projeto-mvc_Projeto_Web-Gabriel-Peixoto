@@ -38,7 +38,7 @@ npm install
 ```
 MONGODB_URI=mongodb://localhost:27017/projeto_mvc
 PORT=3000
-SESSION_SECRET=uma_senha_secreta_aqui
+SESSION_SECRET= Coloque a senha aqui
 ```
 
 Observação: Se for usar MongoDB Atlas, substitua `MONGODB_URI` pela sua string de conexão.
