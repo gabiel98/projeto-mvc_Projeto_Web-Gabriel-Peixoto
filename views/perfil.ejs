@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Perfil</title>
+</head>
+<body>
+  <!-- View simples de perfil que mostra o nome vindo da sessão -->
+  <h1>Perfil</h1>
+  <p>Olá, <strong><%= nome %></strong>!</p>
+  <form action="/logout" method="POST">
+    <% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <% } %>
+    <button type="submit">Sair</button>
+  </form>
+  <p><a href="/users">Voltar à lista</a></p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <title>Login</title>
+</head>
+<body>
+  <!-- Simple login form -->
+  <h1>Login</h1>
+  <% if (typeof query !== 'undefined' && query.erro) { %>
+    <p style="color:red">Erro: <%= query.erro %></p>
+  <% } %>
+  <form action="/login" method="POST">
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div>
+      <label for="senha">Senha:</label>
+      <input type="password" id="senha" name="senha" required />
+    </div>
+    <button type="submit">Entrar</button>
+  </form>
+  <p><a href="/users/new">Criar conta</a></p>
+</body>
+</html>

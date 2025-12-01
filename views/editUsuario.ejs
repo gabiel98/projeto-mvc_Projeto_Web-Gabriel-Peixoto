@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Usuário</title>
+</head>
+
+<body>
+  <!-- View: editUsuario.ejs
+       Recebe `user` do controller e preenche os campos para edição.
+       Envia POST para /users/:id/update (rota que aplica as alterações).
+  -->
+  <h1>Editar Usuário</h1>
+  <form action="/users/<%= user._id %>/update" method="POST">
+    <% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
+      <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <% } %>
+    <div>
+      <label>Nome:</label>
+      <input type="text" name="nome_usuario" value="<%= user.nome %>" required>
+    </div>
+    <div>
+      <label>Cargo:</label>
+      <input type="text" name="cargo_usuario" value="<%= user.cargo %>" required>
+    </div>
+    <br>
+    <button type="submit">💾 Salvar Alterações</button>
+  </form>
+  <br>
+  <a href="/users">Cancelar</a>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <title>Lista de Usuários</title>
+    <style>
+        body { font-family: Arial, sans-serif; background:#f7f7f7; padding:20px }
+        li { background: #fff; margin-bottom:10px; padding:10px; border:1px solid #ddd }
+        .actions { margin-top:6px }
+        .actions form { display:inline }
+    </style>
+</head>
+<body>
+    <!-- View: usersList.ejs
+             Recebe a variável `usuarios` (array) do controller e lista-os.
+             Links e formulários usam rotas do tipo:
+                 GET  /users/:id/edit   -> formulário de edição
+                 POST /users/:id/delete -> remove o usuário
+    -->
+
+    <h1>Lista de Usuários</h1>
+    <a href="/users/new">➕ Adicionar Novo Usuário</a>
+    <ul>
+        <% usuarios.forEach(function(user) { %>
+            <li>
+                <strong><%= user.nome %></strong> - <%= user.cargo %>
+                <div class="actions">
+                    <!-- rota de edição (GET) -->
+                    <a href="/users/<%= user._id %>/edit"><button>✏️ Editar</button></a>
+                    <!-- formulário de exclusão (POST) -->
+                    <form action="/users/<%= user._id %>/delete" method="POST">
+                        <% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>" />
+                        <% } %>
+                        <button type="submit" style="color: red;">🗑️ Excluir</button>
+                    </form>
+                </div>
+            </li>
+        <% }) %>
+    </ul>
+</body>
+</html>
