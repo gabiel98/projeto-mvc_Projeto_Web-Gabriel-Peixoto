@@ -7,10 +7,6 @@
 </head>
 
 <body>
-  <!-- View: editUsuario.ejs
-       Recebe `user` do controller e preenche os campos para edição.
-       Envia POST para /users/:id/update (rota que aplica as alterações).
-  -->
   <h1>Editar Usuário</h1>
   <form action="/users/<%= user._id %>/update" method="POST">
     <% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
