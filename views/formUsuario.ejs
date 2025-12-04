@@ -5,6 +5,11 @@
 		<title>Adicionar Usuário</title>
 	</head>
 	<body>
+		<!-- Formulário para criar novo usuário.
+				 - action: POST /users (controller.createNewUser)
+				 - os names dos inputs devem bater com o que o controller espera
+					 (nome_usuario e cargo_usuario)
+		-->
 		<h1>Adicionar Usuário</h1>
 		<form action="/users" method="POST">
 			<% if (typeof csrfToken !== 'undefined' && csrfToken) { %>
